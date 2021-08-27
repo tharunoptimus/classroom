@@ -16,10 +16,10 @@
 - Add Sign in with Google button
 
 ## Home Page
-- Consists of all the classroom the user is part of with the class card in light gray
-- Shows in yellow border and a manage button if the class is owned by the user
-- Create a new class button and create unique Jitsi meet link for the class
-- Settings Button
+- ~~Consists of all the classroom the user is part of with the class card in light gray~~
+- ~~Shows in yellow border and a manage button if the class is owned by the user~~
+- ~~Create a new class button and create unique Jitsi meet link for the class~~
+- ~~Settings Button~~
 
 ## Class Page
 - Implement tabs at the top to show different sections

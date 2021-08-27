@@ -135,6 +135,7 @@ html, body {
     display: flex;
     flex-direction: column;
     min-width: 15rem;
+    max-width: 19rem;
 }
 
 .classCardHeader {
