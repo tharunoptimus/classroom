@@ -1,6 +1,9 @@
 :root {
     --lightGray: #f7f7f7;
     --buttonBlack: #00000096;
+    --backgroundBlue: #09ff0054;
+    --cardBorderColor: #dadce0;
+    --svgHoverBoxShadow: #5f63680a;
 }
 
 html, body {
@@ -17,13 +20,14 @@ html, body {
 .courcesWrapper .topBar {
     min-height: 3rem;
     max-height: 5rem;
-    padding: 0.5rem 2rem;
+    padding: 0.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: sticky;
     top: 0;
-    border-bottom: 0.0625rem solid #e0e0e0;border-bottom: 0.0625rem solid #e0e0e0;
+    border-bottom: 0.0625rem solid #e0e0e0;
+    background-color: white;
 }
 
 .leftContent {
@@ -32,13 +36,23 @@ html, body {
 }
 
 .leftContent .svgContainer {
-    height: 1rem;
-    width: 1rem;
+    height: 2rem;
+    width: 1.5rem;
     color: var(--buttonBlack);
+    padding: 0.5rem 0.8rem;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.leftContent .svgContainer:hover { 
+    border-radius: 50%;
+    background-color: var(--svgHoverBoxShadow);
 }
 
 .leftContent span {
-    font-size: 1rem;
+    font-size: 1.5rem;
     margin-left: 1rem;
 }
 
@@ -55,9 +69,19 @@ html, body {
 }
 
 .rightContent .iconContainer .svgContainer {
-    height: 1rem;
-    width: 1rem;
+    height: 2rem;
+    width: 1.5rem;
     color: var(--buttonBlack);
+    padding: 0.5rem 0.8rem;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.rightContent .iconContainer .svgContainer:hover {
+    border-radius: 50%;
+    background-color: var(--svgHoverBoxShadow);
 }
 
 .rightContent .profileImageHolder {
@@ -68,4 +92,75 @@ html, body {
 .rightContent .profileImageHolder img{
     width: 100%;
     border-radius: 50%;
+}
+
+.cardsContainer {
+    margin: 1rem 0;
+    padding: 1rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+}
+
+.classCard {
+    border: 1px solid var(--cardBorderColor);
+    border-radius: 8px;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.classCardHeader {
+    background-color: var(--backgroundBlue);
+    min-height: 3rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0.5rem;
+    border-radius: 8px 8px 0 0;
+    cursor: pointer;
+}
+
+.classCardHeader span {
+    pointer-events: none;
+}
+
+.classCardBody {
+    display: flex;
+    flex-direction: column;
+    min-height: 6rem;
+}
+
+.classCardBodyContent {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    margin-left: 0.5rem;
+}
+
+.classCardBodyIcons {
+    margin: 1rem 0 0 0;
+    display: flex;
+}
+
+.classCardBodyIcons .svgContainer {
+    display: flex;
+    justify-content: flex-end;
+    color: var(--buttonBlack);
+    height: 3rem;
+    width: 100%;
+    margin: 0.8rem 0.5rem 0 0;
+}
+
+.classCardBodyIcons .svgContainer .svgContainerDiv {
+    height: 1.5rem;
+    width: 1.5rem;
+    display: grid;
+    place-items: center;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.classCardBodyIcons .svgContainer .svgContainerDiv:hover {
+    border-radius: 50%;
+    background-color: var(--svgHoverBoxShadow);
 }
