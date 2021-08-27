@@ -1,0 +1,21 @@
+:root {
+    --lightGray: #f7f7f7;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.courcesWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.courcesWrapper .topBar {
+    min-height: 3rem;
+    max-height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
