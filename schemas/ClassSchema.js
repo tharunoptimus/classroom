@@ -6,7 +6,7 @@ const ClassSchema = new Schema({
     lectureLink: { type: String, required: true },
     owners: [{ type: Schema.Types.ObjectId, ref: 'User' }],
     students: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-    timings: { type: String, required: true },
+    timings: { type: String },
     assignments: [{ type: Schema.Types.ObjectId, ref: 'Assignment' }],
     tests: [{ type: Schema.Types.ObjectId, ref: 'Test' }]
 

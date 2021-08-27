@@ -30,3 +30,18 @@ mixin createReplyModal(userLoggedIn)
                 .modal-footer
                     button.btn.btn-secondary(type='button' data-dismiss='modal') Close
                     button#submitReplyButton.btn.btn-primary(type='button', disabled="") Reply
+
+mixin createClassForm(userLoggedIn)
+    #createClass.modal.fade(tabindex='-1' role='dialog' aria-labelledby='createClassLabel' aria-hidden='true')
+        .modal-dialog(role='document')
+            .modal-content
+                .modal-header
+                    h5#createClassLabel.modal-title Create Class
+                    button.close(type='button' data-dismiss='modal' aria-label='Close')
+                    span(aria-hidden='true') 
+                .modal-body
+                    span  Enter the Details to be included int he class 
+                    span !{userLoggedIn.firstName}
+                .modal-footer
+                    button.btn.btn-secondary(type='button' data-dismiss='modal') Camcel
+                    button#submitReplyButton.btn.btn-primary(type='button', disabled="") Create

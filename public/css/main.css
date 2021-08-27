@@ -37,7 +37,7 @@ html, body {
 
 .leftContent .svgContainer {
     height: 2rem;
-    width: 1.5rem;
+    width: 3rem;
     color: var(--buttonBlack);
     padding: 0.5rem 0.8rem;
     font-size: 1.5rem;
@@ -49,6 +49,27 @@ html, body {
 .leftContent .svgContainer:hover { 
     border-radius: 50%;
     background-color: var(--svgHoverBoxShadow);
+}
+
+#createClass {
+    border: 0;
+    background-color: transparent;
+    outline: none;
+    height: 3rem;
+}
+
+#createClass:hover {
+    border-radius: 50%;
+    background-color: var(--svgHoverBoxShadow);
+    
+}
+
+#inputClassName {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 8px;
+    outline: none;
+    border: 1px solid var(--cardBorderColor);
 }
 
 .leftContent span {
@@ -70,13 +91,17 @@ html, body {
 
 .rightContent .iconContainer .svgContainer {
     height: 2rem;
-    width: 1.5rem;
+    width: 3.5rem;
     color: var(--buttonBlack);
     padding: 0.5rem 0.8rem;
     font-size: 1.5rem;
     display: flex;
     align-items: center;
     cursor: pointer;
+}
+
+.rightContent .iconContainer .svgContainer svg {
+    pointer-events: none;
 }
 
 .rightContent .iconContainer .svgContainer:hover {
@@ -170,7 +195,7 @@ html, body {
 
 .classCardBodyIcons .svgContainer .svgContainerDiv {
     height: 1.5rem;
-    width: 1.5rem;
+    width: 2.5rem;
     display: grid;
     place-items: center;
     padding: 0.5rem;

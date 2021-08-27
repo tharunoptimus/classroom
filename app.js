@@ -26,8 +26,16 @@ const loginRoutes = require("./routes/loginRoutes")
 const registerRoutes = require("./routes/registerRoots")
 
 
+// API Endpoints
+const classApi = require("./routes/api/class")
+
+
 app.use("/login" , loginRoutes);
 app.use("/register" , registerRoutes);
+
+// Use API Endpoints
+
+app.use("/api/class" , classApi);
 
 app.get("/", middleware.requireLogin, (req, res, next) => {
     var payload = {
