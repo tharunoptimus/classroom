@@ -38,10 +38,28 @@ router.post("/create", async (req, res, next) => {
     .catch(error => { console.log(error); res.sendStatus(400); })
 })
 
+router.put("/join", async (req, res, next) => {
+    if(!req.session.user) { console.log("User param not sent with request"); return res.sendStatus(400); }
+
+    let classId = req.body.classId
+    let userId = req.session.user._id
+    
+    await Class.findOneAndUpdate({classId: classId}, {$addToSet: {students: userId}}, { new: true})
+    .then( async (classToAdd) => {
+        req.session.user= await User.findOneAndUpdate({_id: userId}, {$addToSet: {belongsTo: classToAdd._id}}, { new: true})
+
+        classToAdd = await Class.populate(classToAdd, {path: "owners"})
+        res.status(201).send(classToAdd)
+    })
+    .catch(error => { console.log(error); res.sendStatus(400); })
+})
+
 router.get("/", async (req, res, next) => {
     if(!req.session.user) { console.log("User param not sent with request"); return res.sendStatus(400); }
     let userId = req.session.user._id
-    let classes = await Class.find({owners: userId})
+    // find all classes that the user is an owner or a student 
+    let classes = await Class.find({$or: [{owners: userId}, {students: userId}]})
+    .sort({ updatedAt: -1 })
     .populate("owners")
     .populate("students")
 

@@ -51,20 +51,21 @@ html, body {
     background-color: var(--svgHoverBoxShadow);
 }
 
-#createClass {
+#createClass, #joinClass {
     border: 0;
     background-color: transparent;
     outline: none;
     height: 3rem;
 }
 
-#createClass:hover {
+#createClass:hover,
+#joinClass:hover {
     border-radius: 50%;
     background-color: var(--svgHoverBoxShadow);
     
 }
 
-#inputClassName {
+#inputClassName, #inputJoinClassName {
     width: 100%;
     padding: 0.5rem;
     border-radius: 8px;
@@ -90,7 +91,7 @@ html, body {
 }
 
 .rightContent .iconContainer .svgContainer {
-    height: 2rem;
+    height: 3.5rem;
     width: 3.5rem;
     color: var(--buttonBlack);
     padding: 0.5rem 0.8rem;
@@ -194,7 +195,7 @@ html, body {
 }
 
 .classCardBodyIcons .svgContainer .svgContainerDiv {
-    height: 1.5rem;
+    height: 2.5rem;
     width: 2.5rem;
     display: grid;
     place-items: center;
