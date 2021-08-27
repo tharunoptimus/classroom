@@ -1,10 +1,12 @@
 :root {
     --lightGray: #f7f7f7;
+    --buttonBlack: #00000096;
 }
 
 html, body {
     height: 100%;
     margin: 0;
+    font-weight: 400;
 }
 
 .courcesWrapper {
@@ -15,7 +17,55 @@ html, body {
 .courcesWrapper .topBar {
     min-height: 3rem;
     max-height: 5rem;
+    padding: 0.5rem 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: sticky;
+    top: 0;
+    border-bottom: 0.0625rem solid #e0e0e0;border-bottom: 0.0625rem solid #e0e0e0;
+}
+
+.leftContent {
+    display: flex;
+    align-items: center;
+}
+
+.leftContent .svgContainer {
+    height: 1rem;
+    width: 1rem;
+    color: var(--buttonBlack);
+}
+
+.leftContent span {
+    font-size: 1rem;
+    margin-left: 1rem;
+}
+
+.rightContent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.rightContent .iconContainer {
+    margin: auto 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.rightContent .iconContainer .svgContainer {
+    height: 1rem;
+    width: 1rem;
+    color: var(--buttonBlack);
+}
+
+.rightContent .profileImageHolder {
+    max-height: 2rem;
+    max-width: 2rem;
+}
+
+.rightContent .profileImageHolder img{
+    width: 100%;
+    border-radius: 50%;
 }
