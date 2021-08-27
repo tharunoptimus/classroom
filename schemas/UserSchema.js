@@ -7,16 +7,10 @@ const UserSchema = new Schema({
     email: { type: String, required: true, trim: true, unique: true },
     password: { type: String, required: true },
     profilePic: { type: String, default: "/images/profilePic.png" },
-    coverPhoto: { type: String},
-    personalEmail: { type: String, trim: true },
-    phone: { type: String, trim: true },
-    personalURL: { type: String, trim: true },
-    aboutField: { type: String, trim: true, default: "Hi There! Thunder Me!" },
-    likes: [{ type: Schema.Types.ObjectId, ref: 'Post' }],
-    retweets: [{ type: Schema.Types.ObjectId, ref: 'Post' }],
-    following: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-    followers: [{ type: Schema.Types.ObjectId, ref: 'User' }]
-    
+    belongsTo: [{ type: Schema.Types.ObjectId, ref: 'Class' }],
+    ownerOf: [{ type: Schema.Types.ObjectId, ref: 'Class' }],
+    assignments: [{ type: Schema.Types.ObjectId, ref: 'Assignment' }],
+    tests: [{ type: Schema.Types.ObjectId, ref: 'Test' }]
 }, { timestamps: true });
 
 var User = mongoose.model('User', UserSchema)
