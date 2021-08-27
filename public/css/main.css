@@ -108,6 +108,7 @@ html, body {
     padding: 0.5rem;
     display: flex;
     flex-direction: column;
+    min-width: 15rem;
 }
 
 .classCardHeader {
@@ -122,6 +123,22 @@ html, body {
 
 .classCardHeader span {
     pointer-events: none;
+}
+
+.classCardHeader .className {
+    font-size: 1.6rem;
+}
+
+.classCardHeader .classCode {
+    font-size: 1.3rem;
+}
+
+.classCardBodyContent .classOwner {
+    font-size: 1.2rem;
+}
+
+.classCardBodyContent .classStudentCount {
+    font-size: 1.1rem;
 }
 
 .classCardBody {

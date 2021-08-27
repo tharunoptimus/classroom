@@ -22,18 +22,20 @@ app.use(session({
     saveUninitialized: false
 }))
 
-// app.use("/login", loginRoute);
-// app.get("/", middleware.requireLogin, (req, res, next) => {
-//     var payload = {
-//         pageTitle: "Home",
-//         userLoggedIn: req.session.user,
-//         userLoggedInJs: JSON.stringify(req.session.user),
-//     }
-//     res.status(200).render("home", payload);
-// })
+const loginRoutes = require("./routes/loginRoutes")
+const registerRoutes = require("./routes/registerRoots")
 
-app.get("/", (req, res, next) => {
-    res.status(200).render("courses", {pageTitle: "Classroom"});
+
+app.use("/login" , loginRoutes);
+app.use("/register" , registerRoutes);
+
+app.get("/", middleware.requireLogin, (req, res, next) => {
+    var payload = {
+        pageTitle: "Classroom",
+        userLoggedIn: req.session.user,
+        userLoggedInJs: JSON.stringify(req.session.user),
+    }
+    res.status(200).render("courses", payload);
 })
 
 
