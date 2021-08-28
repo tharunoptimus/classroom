@@ -19,21 +19,21 @@ router.post("/create", async (req, res, next) => {
     if(!req.session.user) { console.log("User param not sent with request"); return res.sendStatus(400); }
     let className = req.body.className
     let classId = nanoid(10)
-    let owners = [req.session.user._id]
     let lectureLink = createJitsiLink(className, classId)
     let newClass = {
         className: className,
         classId: classId,
-        lectureLink: lectureLink,
-        owners: owners
+        lectureLink: lectureLink
     }
 
 
     await Class.create(newClass)
     .then( async (createdClass) => {
+        // find by id and update the owner of the class as the user who created it in the class collection
+        createdClass = await Class.findByIdAndUpdate(createdClass._id, { $addToSet: { owners: req.session.user._id } }, { new: true })
         createdClass = await Class.populate(createdClass, {path: "owners"})
+        req.session.user = await User.findByIdAndUpdate(req.session.user._id, {$addToSet: {ownerOf: createdClass._id}})
         res.status(201).send(createdClass)
-
     })
     .catch(error => { console.log(error); res.sendStatus(400); })
 })
@@ -57,13 +57,26 @@ router.put("/join", async (req, res, next) => {
 router.get("/", async (req, res, next) => {
     if(!req.session.user) { console.log("User param not sent with request"); return res.sendStatus(400); }
     let userId = req.session.user._id
-    // find all classes that the user is an owner or a student 
-    let classes = await Class.find({$or: [{owners: userId}, {students: userId}]})
-    .sort({ updatedAt: -1 })
+
+    let resultArray = []
+    let idsToSearch = []
+
+    let user = await User.findById(userId)
+    user.belongsTo.forEach(element => {
+        idsToSearch.push(element._id)
+    })
+    user.ownerOf.forEach(element => {
+        idsToSearch.push(element._id)
+    })
+
+    await Class.find({_id: {$in: idsToSearch}})
     .populate("owners")
     .populate("students")
+    .then( async (classes) => {
+        res.status(200).send(classes)
+    })
 
-    res.status(200).send(classes)
+    
 })
 
 function createJitsiLink(className, classID) {

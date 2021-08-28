@@ -24,6 +24,7 @@ app.use(session({
 
 const loginRoutes = require("./routes/loginRoutes")
 const registerRoutes = require("./routes/registerRoots")
+const classRoutes = require("./routes/classRoutes")
 
 
 // API Endpoints
@@ -32,6 +33,7 @@ const classApi = require("./routes/api/class")
 
 app.use("/login" , loginRoutes);
 app.use("/register" , registerRoutes);
+app.use("/class" , classRoutes);
 
 // Use API Endpoints
 
