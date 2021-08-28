@@ -4,6 +4,7 @@
     --backgroundBlue: #09ff0054;
     --cardBorderColor: #dadce0;
     --svgHoverBoxShadow: #5f63680a;
+    --borderTopLine: 0.0625rem solid #e0e0e0;
 }
 
 html, body {
@@ -123,9 +124,10 @@ html, body {
 .cardsContainer {
     margin: 1rem 0;
     padding: 1rem 2rem;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 1rem;
+    display: flex;
+    /* grid-template-columns: repeat(4, 1fr); */
+    /* grid-gap: 1rem; */
+    flex-wrap: wrap;
 }
 
 .classCard {
@@ -134,8 +136,14 @@ html, body {
     padding: 0.5rem;
     display: flex;
     flex-direction: column;
-    min-width: 15rem;
-    max-width: 19rem;
+    min-width: 18rem;
+    overflow: hidden;
+    height: 18.375rem;
+    background-clip: padding-box;
+    text-align: left;
+    margin-bottom: 1.5rem;
+    margin-right: 1.5rem;
+    position: relative;
 }
 
 .classCardHeader {
@@ -172,6 +180,7 @@ html, body {
     display: flex;
     flex-direction: column;
     min-height: 6rem;
+    margin-top: auto;
 }
 
 .classCardBodyContent {
@@ -184,15 +193,17 @@ html, body {
 .classCardBodyIcons {
     margin: 1rem 0 0 0;
     display: flex;
+    /* border-top: var(--borderTopLine); */
 }
 
 .classCardBodyIcons .svgContainer {
+    border-top: var(--borderTopLine);
     display: flex;
     justify-content: flex-end;
     color: var(--buttonBlack);
     height: 3rem;
     width: 100%;
-    margin: 0.8rem 0.5rem 0 0;
+    padding: 0.8rem 0.5rem 0 0;
 }
 
 .classCardBodyIcons .svgContainer .svgContainerDiv {
