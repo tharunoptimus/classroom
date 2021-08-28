@@ -12,38 +12,33 @@ block content
                     h1.className.standardTextEllipses
                     .classOwnerDisplay.standardTextEllipses
         .bodyContainer
-            .announcementMaker
-                .announcementMakerProfilePhotoContainer
-                    img(src="https://via.placeholder.com/150", alt="Profile Pic")
-                textarea#announcementText(placeholder="What's on your mind?")
-                button#sendMessageButton
-                    .svgContainer
-                        svg(aria-hidden="true" focusable="false" data-prefix="fas" data-icon="paper-plane" class="svg-inline--fa fa-paper-plane fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512")
-                            path(fill="currentColor" d="M476 3.2L12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z")
-            .tipsBlockContainer
-                .tipsBlock#noMessages
-                    .tipsBlockHeader
-                        p.standardText Communicate with your class here
-                    .tipsBlockBody
-                        .tipsBlockSubBody
-                            .svgContainer
-                                svg(aria-hidden="true" focusable="false" data-prefix="far" data-icon="comments" class="svg-inline--fa fa-comments fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512")
-                                    path(fill="currentColor" d="M532 386.2c27.5-27.1 44-61.1 44-98.2 0-80-76.5-146.1-176.2-157.9C368.3 72.5 294.3 32 208 32 93.1 32 0 103.6 0 192c0 37 16.5 71 44 98.2-15.3 30.7-37.3 54.5-37.7 54.9-6.3 6.7-8.1 16.5-4.4 25 3.6 8.5 12 14 21.2 14 53.5 0 96.7-20.2 125.2-38.8 9.2 2.1 18.7 3.7 28.4 4.9C208.1 407.6 281.8 448 368 448c20.8 0 40.8-2.4 59.8-6.8C456.3 459.7 499.4 480 553 480c9.2 0 17.5-5.5 21.2-14 3.6-8.5 1.9-18.3-4.4-25-.4-.3-22.5-24.1-37.8-54.8zm-392.8-92.3L122.1 305c-14.1 9.1-28.5 16.3-43.1 21.4 2.7-4.7 5.4-9.7 8-14.8l15.5-31.1L77.7 256C64.2 242.6 48 220.7 48 192c0-60.7 73.3-112 160-112s160 51.3 160 112-73.3 112-160 112c-16.5 0-33-1.9-49-5.6l-19.8-4.5zM498.3 352l-24.7 24.4 15.5 31.1c2.6 5.1 5.3 10.1 8 14.8-14.6-5.1-29-12.3-43.1-21.4l-17.1-11.1-19.9 4.6c-16 3.7-32.5 5.6-49 5.6-54 0-102.2-20.1-131.3-49.7C338 339.5 416 272.9 416 192c0-3.4-.4-6.7-.7-10C479.7 196.5 528 238.8 528 288c0 28.7-16.2 50.6-29.7 64z")
-                        span Send, receive, and share messages with your class
-                    
-                
+            .classDetailsContainer
+                span.upcoming Upcoming
+                span.smallTask Join the lecture
+                a(href=classObject.lectureLink, aria-label="Attend the lecture now!", target="_blank")
+                    button.goodAjaxButton Join Lecture
+            .mainBodyContainer
+                .announcementMaker
+                    .announcementMakerProfilePhotoContainer
+                        img(src="https://via.placeholder.com/150", alt="Profile Pic")
+                    textarea#announcementText(placeholder="What's on your mind?", autofocus="")
+                    button#sendMessageButton
+                        .svgContainer
+                            svg(aria-hidden="true" focusable="false" data-prefix="fas" data-icon="paper-plane" class="svg-inline--fa fa-paper-plane fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512")
+                                path(fill="currentColor" d="M476 3.2L12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z")
+                .seeMoreMessages
+                    button#seeMoreMessagesButton Load More Messages
+                .messages
 
-        
-
-
-
-
+                .tipsBlockContainer
+                    .tipsBlock#noMessages
+                        .tipsBlockHeader
+                            p.standardText Communicate with your class here
+                        .tipsBlockBody
+                            .tipsBlockSubBody
+                                .svgContainer
+                                    svg(aria-hidden="true" focusable="false" data-prefix="far" data-icon="comments" class="svg-inline--fa fa-comments fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512")
+                                        path(fill="currentColor" d="M532 386.2c27.5-27.1 44-61.1 44-98.2 0-80-76.5-146.1-176.2-157.9C368.3 72.5 294.3 32 208 32 93.1 32 0 103.6 0 192c0 37 16.5 71 44 98.2-15.3 30.7-37.3 54.5-37.7 54.9-6.3 6.7-8.1 16.5-4.4 25 3.6 8.5 12 14 21.2 14 53.5 0 96.7-20.2 125.2-38.8 9.2 2.1 18.7 3.7 28.4 4.9C208.1 407.6 281.8 448 368 448c20.8 0 40.8-2.4 59.8-6.8C456.3 459.7 499.4 480 553 480c9.2 0 17.5-5.5 21.2-14 3.6-8.5 1.9-18.3-4.4-25-.4-.3-22.5-24.1-37.8-54.8zm-392.8-92.3L122.1 305c-14.1 9.1-28.5 16.3-43.1 21.4 2.7-4.7 5.4-9.7 8-14.8l15.5-31.1L77.7 256C64.2 242.6 48 220.7 48 192c0-60.7 73.3-112 160-112s160 51.3 160 112-73.3 112-160 112c-16.5 0-33-1.9-49-5.6l-19.8-4.5zM498.3 352l-24.7 24.4 15.5 31.1c2.6 5.1 5.3 10.1 8 14.8-14.6-5.1-29-12.3-43.1-21.4l-17.1-11.1-19.9 4.6c-16 3.7-32.5 5.6-49 5.6-54 0-102.2-20.1-131.3-49.7C338 339.5 416 272.9 416 192c0-3.4-.4-6.7-.7-10C479.7 196.5 528 238.8 528 288c0 28.7-16.2 50.6-29.7 64z")
+                            span Send, receive, and share messages with your class
 block scripts
-    script.
-        $(document).on('click', '#stream', function() {
-            window.location.href = '/class/' + classObject._id;
-        });
-        // add class name to the h1 of class className from the object classObject
-        $('.className').text(classObject.className);
-        $('.classOwnerDisplay').text(classObject.owners[0].firstName + ' ' + classObject.owners[0].lastName);
-        $("#stream").addClass("selectedTabsDiv");
+    script(src="/js/stream.js")

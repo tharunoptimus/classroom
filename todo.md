@@ -22,15 +22,15 @@
 - ~~Settings Button~~
 
 ## Class Page
-- Implement tabs at the top to show different sections
-- Discussion, Assignments, People, Marks
+- ~~Implement tabs at the top to show different sections~~
+- ~~Discussion, Assignments, People, Marks~~
 
 ### Class Settings Page
 - Change the Class Name
 - Delete the Class
 
 ### Discussion
-- Chat with other users and shows `owner` if it was made by the class owner
+- ~~Chat with other users and shows `owner` if it was made by the class owner~~
 - With all the features just like Talk Messenger
 
 ### Assignments

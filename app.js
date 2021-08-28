@@ -29,6 +29,7 @@ const classRoutes = require("./routes/classRoutes")
 
 // API Endpoints
 const classApi = require("./routes/api/class")
+const messagesApi = require("./routes/api/messages")
 
 
 app.use("/login" , loginRoutes);
@@ -38,6 +39,7 @@ app.use("/class" , classRoutes);
 // Use API Endpoints
 
 app.use("/api/class" , classApi);
+app.use("/api/messages" , messagesApi);
 
 app.get("/", middleware.requireLogin, (req, res, next) => {
     var payload = {

@@ -1,13 +1,14 @@
 :root {
     --whiteText: #fff;
     --lightGray: #f7f7f7;
-    --buttonBlack: #00000096;
-    --backgroundBlue: #09ff0054;
-    --cardBorderColor: #dadce0;
-    --svgHoverBoxShadow: #5f63680a;
+    --bgByOwner: #e74c3c1a;
     --tabFontColor: #5F6368;
-    --tabBottomBorderColor: #1967d2;
+    --buttonBlack: #00000096;
+    --cardBorderColor: #dadce0;
+    --backgroundBlue: #09ff0054;
     --tabFontHoverColor: #e8f0fe;
+    --svgHoverBoxShadow: #5f63680a;
+    --tabBottomBorderColor: #1967d2;
     --tabInactiveFontHoverColor: #2021240a;
     --borderTopLine: 0.0625rem solid #e0e0e0;
 }
@@ -338,12 +339,48 @@ html, body {
     }
 }
 
+
 .bodyContainer {
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
-    flex-direction: column;
     margin-top: 1.5rem;
+}
+
+.classDetailsContainer {
+    height: fit-content;
+    width: 12.125rem;
+    padding: 1rem;
+    margin-right: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    border: 0.0625rem solid #dadce0;
+    border-radius: 0.5rem;
+    flex-shrink: 0;
+}
+
+.classDetailsContainer .upcoming {
+    text-align: left;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.classDetailsContainer .smallTask {
+    font-size: 0.75rem;
+}
+
+@media (max-width: 30em) {
+    .classDetailsContainer {
+        display: none;
+    }
+}
+
+.mainBodyContainer {
+    flex: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
 }
 
 @media (max-width: 30em) {
@@ -374,7 +411,7 @@ html, body {
 
 #announcementText {
     flex: 1;
-    height: 3rem;
+    height: 2.6rem;
     resize: none;
     overflow-y: auto;
     margin: 0 0.5rem;
@@ -397,6 +434,7 @@ html, body {
 .tipsBlockContainer {
     display: flex;
     flex-direction: column;
+    margin-bottom: 1rem;
 }
 
 .tipsBlock {
@@ -419,6 +457,10 @@ html, body {
     margin: 0;
 }
 
+.whiteSpaceBreakSpace {
+    white-space: break-spaces;
+}
+
 .tipsBlockSubBody .svgContainer {
     display: flex;
     align-items: center;
@@ -439,4 +481,75 @@ html, body {
     display: -webkit-flex;
     display: flex;
     min-height: 2.25rem;
+}
+
+.seeMoreMessages {
+    display: grid;
+    place-items: center;
+    margin-top: 1.5rem;
+}
+
+
+#seeMoreMessagesButton, .goodAjaxButton {
+    margin: 11px 4px;
+
+    background-color: var(--tabFontHoverColor);
+    border: 1px solid #f8f9fa;
+    border-radius: 4px;
+    color: var(--tabBottomBorderColor);
+    outline: none;
+    font-family: arial,sans-serif;
+    font-size: 14px;
+    
+    padding: 0 16px;
+    line-height: 27px;
+    height: 36px;
+    min-width: 54px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.goodAjaxButton {
+    width: fit-content;
+    margin: 11px 0;
+}
+
+.messages {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5rem;
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+    border-radius: 0.5rem;
+}
+
+.messageContainer {
+    color: #444444;
+    display: flex;
+    align-items: flex-start;
+    padding: 0.5rem 1rem 0 1rem;
+    /* padding: 0.2rem 1rem; */
+    border-bottom: 1px solid var(--cardBorderColor);
+}
+
+.profileContainer {
+    margin: 0 1rem;
+    display: flex;
+    align-items: center;
+    height: 2rem;
+    width: 2rem;
+}
+
+.profileContainer img {
+    height: 100%;
+    border-radius: 50%;
+}
+
+.messageContainer .message {
+    flex: 1;
+}
+
+.messageContainer .senderName {
+    color: #44444499;
+    display: flex;
 }

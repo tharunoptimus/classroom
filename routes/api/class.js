@@ -29,7 +29,6 @@ router.post("/create", async (req, res, next) => {
 
     await Class.create(newClass)
     .then( async (createdClass) => {
-        // find by id and update the owner of the class as the user who created it in the class collection
         createdClass = await Class.findByIdAndUpdate(createdClass._id, { $addToSet: { owners: req.session.user._id } }, { new: true })
         createdClass = await Class.populate(createdClass, {path: "owners"})
         req.session.user = await User.findByIdAndUpdate(req.session.user._id, {$addToSet: {ownerOf: createdClass._id}})
