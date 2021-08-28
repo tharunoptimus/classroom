@@ -27,7 +27,7 @@ router.get("/:classId", async (req, res, next) => {
     .then(async classData => {
         classData = await Class.populate(classData, {path: "owners"})
 
-        payload.pageTitle = classData.className
+        payload.pageTitle = "Dashboard"
         payload.classObject = classData;
         payload.classObjectJs = JSON.stringify(classData);
 

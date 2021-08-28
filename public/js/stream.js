@@ -8,13 +8,11 @@ $(document).on('click', '#seeMoreMessagesButton', async () => {
     await fetchMessages()
 })
 
-$(document).on('click', '#stream', function() {
-    window.location.href = '/class/' + classObject._id;
-});
-
 $('.className').text(classObject.className);
 
-$('.classOwnerDisplay').text(classObject.owners[0].firstName + ' ' + classObject.owners[0].lastName);
+$('.classOwnerName').text(classObject.owners[0].firstName + ' ' + classObject.owners[0].lastName);
+
+$('.classCode').text(classObject.classId);
 
 $("#stream").addClass("selectedTabsDiv");
 

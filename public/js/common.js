@@ -8,6 +8,20 @@ $("#createClass").on("hidden.bs.modal", () =>
     $("#createClass").css
 );
 
+// Top Bar Navigation - I don't know why I did this instead of adding a href to the <a> but this looks good too
+$(document).on('click', '#stream', function() {
+    window.location.href = '/class/' + classObject._id;
+});
+$(document).on('click', '#assignments', function() {
+    window.location.href = '/class/' + classObject._id + '/assignments';
+});
+$(document).on('click', '#people', function() {
+    window.location.href = '/class/' + classObject._id + '/people';
+});
+$(document).on('click', '#tests', function() {
+    window.location.href = '/class/' + classObject._id + '/tests';
+});
+
 
 $(document).on("click", "#confirmCreateClass", () => {
     let input = $("#createClassPromptModal").find("input");
