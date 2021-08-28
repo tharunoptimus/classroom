@@ -27,12 +27,13 @@ router.get("/:classId", async (req, res, next) => {
     .then(async classData => {
         classData = await Class.populate(classData, {path: "owners"})
 
-        payload.pageTitle = `${classData.className} - ${classData.owners[0].firstName} 's Class`
+        payload.pageTitle = classData.className
         payload.classObject = classData;
         payload.classObjectJs = JSON.stringify(classData);
 
 
-        res.status(200).render("class", {classData: classData, user: req.session.user})
+
+        res.status(200).render("stream", payload)
     })
     .catch(err => {
         res.json(err);
