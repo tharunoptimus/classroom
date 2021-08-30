@@ -1,15 +1,20 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 .wrapper {
+    margin-top: 0;
+    height: 100%;
+    align-items: center;
     display: flex;
     justify-content: center;
-    margin-top: 2rem;
-
-
 }
 
 .loginContainer {
     padding: 1.5rem;
     width: 80%;
-    max-width: 500px;
+    max-width: 430px;
     border: 1px solid #DEDEDE;
     border-radius: 0.2rem;
     background-color: #FFFFFF;
@@ -48,18 +53,6 @@ input[type="submit"] {
     height: 2rem;
 }
 
-@media (max-width: 48em){
-    html, body {
-        height: 100%;
-        margin: 0;
-    }
-    
-    .wrapper {
-        margin-top: 0;
-        height: 100%;
-        align-items: center;
-    }
-}
 
 @media (max-width: 30em){
     .wrapper {

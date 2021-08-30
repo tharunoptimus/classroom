@@ -1,6 +1,12 @@
 $(document).ready(function () {
     $.get("/api/class", function (data) {
-        $(".cardsContainer").html(createClassCard(data));
+        if(data.length == 0) {
+            // set style display: flex for div of class .noContent
+            $('.noContent').css('display', 'flex');
+        }
+        else {
+            $(".cardsContainer").html(createClassCard(data));
+        }
     })
 });
 

@@ -19,6 +19,7 @@ html, body {
 }
 
 .courcesWrapper {
+    height: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -126,6 +127,17 @@ html, body {
 .rightContent .profileImageHolder img{
     width: 100%;
     border-radius: 50%;
+}
+
+.noContent {
+    height: 90%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard {
+    height: 100%;
 }
 
 .cardsContainer {
