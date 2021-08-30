@@ -1,5 +1,9 @@
-
-
+$(document).ready(() => {
+    console.log("common.js loaded");
+    if(!userLoggedIn.ownerOf.includes(classObject._id)) {
+        $(".cogIcon").remove();
+    }
+});
 
 
 // Don't touch this. I don't know what it does. 
@@ -21,7 +25,6 @@ $(document).on('click', '#people', function() {
 $(document).on('click', '#tests', function() {
     window.location.href = '/class/' + classObject._id + '/tests';
 });
-
 
 $(document).on("click", "#confirmCreateClass", () => {
     let input = $("#createClassPromptModal").find("input");
@@ -73,6 +76,7 @@ $(document).on("click", "#confirmJoinButton", () => {
         })
     }
 })
+
 
 function timeDifference(current, previous) {
 	var msPerMinute = 60 * 1000;
