@@ -1,0 +1,28 @@
+extends layouts/main-layout.pug
+
+block content
+    .streamContainer
+        .bodyContainer
+            .mainBodyContainer
+                .gridPlaceCenter
+                .assignments
+                .previousAssignments
+                .tipsBlockContainer
+
+block modals
+    #createAssignmentModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='createAssignmentModalLabel', aria-hidden='true')
+        .modal-dialog(role='document')
+            .modal-content
+                .modal-header
+                    h5#createAssignmentModalLabel.modal-title Create a New Test
+                .modal-body.createTaskModalBody
+                    input#assignmentTitleInput(type="text", placeholder="Enter the Title")
+                    textarea#assignmentTitleDescriptionInput(placeholder="Enter the Description")
+                    input#assignmentLinkInput(type="text", placeholder="Enter the link to the form")
+                    input#assignmentMarkInput(type="text", placeholder="Enter the Total Marks")
+                .modal-footer
+                    button.btn.btn-secondary(type='button', data-dismiss='modal') Cancel
+                    button#confirmCreateAssignment.btn.btn-primary(type='button') Create
+
+block scripts
+    script(src="/js/tests.js")

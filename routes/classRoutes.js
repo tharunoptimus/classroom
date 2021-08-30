@@ -78,5 +78,40 @@ router.get("/:classId/assignments", async (req, res, next) => {
     
 })
 
+router.get("/:classId/tests", async (req, res, next) => {
+
+    if(!req.session.user) return res.redirect("/login")
+    let classId = req.params.classId;
+    let checkArray = [...req.session.user.belongsTo, ...req.session.user.ownerOf];
+    if(!checkArray.includes(req.params.classId)) return res.redirect("/home")
+
+    let owner = req.session.user.ownerOf.includes(classId) ? true : false;
+
+
+
+    var payload = {
+        userLoggedIn: req.session.user,
+        userLoggedInJs: JSON.stringify(req.session.user)
+    }
+
+    await Class.findById(req.params.classId)
+    .then(async classData => {
+        classData = await Class.populate(classData, {path: "owners"})
+
+        payload.pageTitle = "Tests"
+        payload.classObject = classData;
+        payload.classObjectJs = JSON.stringify(classData);
+
+
+
+        res.status(200).render("testview", payload)
+    })
+    .catch(err => {
+        res.json(err);
+        res.status(500).send("Server Error")
+    })
+
+})
+
 
 module.exports = router; 

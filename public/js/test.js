@@ -2,15 +2,15 @@ let allottedMarks = 0
 
 $(document).ready(async () => {
 
-    $("#assignments").addClass("selectedTabsDiv");
+    $("#tests").addClass("selectedTabsDiv");
 
-    await $.get(`/api/assignment/${assignmentObject._id}`, (data) => {
-        let html = showAssignmentDetails(data)
+    await $.get(`/api/test/${assignmentObject._id}`, (data) => {
+        let html = showTestDetails(data)
         $(".assignmentDetails").html(html)
     })
     
-    await $.get(`/api/assignment/${classObject._id}/${assignmentObject._id}/submissions`, (data) => {
-        let html = renderAssignmentSubmit(data)
+    await $.get(`/api/test/${classObject._id}/${assignmentObject._id}/submissions`, (data) => {
+        let html = renderTestSubmit(data)
         $(".completedAssignments").html(html)
     })
 
@@ -22,7 +22,7 @@ $(document).on('click', '.assignmentTitle', function () {
 })
 
 
-function renderAssignmentSubmit (data) {
+function renderTestSubmit (data) {
     let html = ""
 
     data.forEach(task => {
@@ -64,7 +64,7 @@ function renderAssignmentReturn (data) {
 
 
 $(document).on('click', "#returned", async () => {
-    $.get(`/api/assignment/${classObject._id}/${assignmentObject._id}/returned`, (data) => {
+    $.get(`/api/test/${classObject._id}/${assignmentObject._id}/returned`, (data) => {
         let html = renderAssignmentReturn(data)
         $(".returnedAssignments").html(html)
         $("#returned").remove()
@@ -82,7 +82,7 @@ $(document).on('click', '.submitMarks', async (event) => {
         mark: mark
     }
     $.ajax({
-        url: `/api/assignment/return`,
+        url: `/api/test/return`,
         method: 'PUT',
         data: data,
         success: () => {
@@ -91,21 +91,22 @@ $(document).on('click', '.submitMarks', async (event) => {
     })
 })
 
-function showAssignmentDetails (assignment) {
-    allottedMarks = assignment.assignedMarks
-    let completed = parseInt(assignment.completedBy.length)
+
+function showTestDetails (test) {
+    allottedMarks = test.assignedMarks
+    let completed = parseInt(test.completedBy.length)
     let remaining = parseInt(classObject.students.length) - completed
     let html = ""
     html += `<div class="assignmentContainer">
-        <div class="assignmentTitle" data-id="${assignment._id}">
-            <p class="assignmentTitlePara">Assignment Details</p>
+        <div class="assignmentTitle" data-id="${test._id}">
+            <p class="assignmentTitlePara">Test Details</p>
         </div>
         <div class="assignmentBody">
             <div class="assignmentBodyHolder">
-                <p class="assignmentDescription">${assignment.name}</p>
-                <p class="assignmentDescription">${assignment.description}</p>
-                <a class="assignmentLink" href="${assignment.link}">Link to the assignment</a>
-                <span>Assigned Marks: ${assignment.assignedMarks}</span>
+                <p class="assignmentDescription">${test.name}</p>
+                <p class="assignmentDescription">${test.description}</p>
+                <a class="assignmentLink" href="${test.link}">Link to the test</a>
+                <span>Assigned Marks: ${test.assignedMarks}</span>
                 <div class="submissionDetails">
                     <span>
                         <p class="numeral"> ${completed} </p>

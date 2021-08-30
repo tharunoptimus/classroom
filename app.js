@@ -26,6 +26,7 @@ const loginRoutes = require("./routes/loginRoutes")
 const registerRoutes = require("./routes/registerRoots")
 const classRoutes = require("./routes/classRoutes")
 const assignmentRoutes = require("./routes/assignmentRoutes")
+const testRoutes = require("./routes/testRoutes")
 
 
 // API Endpoints
@@ -33,19 +34,23 @@ const classApi = require("./routes/api/class")
 const messagesApi = require("./routes/api/messages")
 const assignmentsApi = require("./routes/api/assignments")
 const assignmentApi = require("./routes/api/assignment")
+const testsApi = require("./routes/api/tests")
+const testApi = require("./routes/api/test")
 
 
 app.use("/login" , loginRoutes);
 app.use("/register" , registerRoutes);
 app.use("/class" , classRoutes);
 app.use("/assignment" , assignmentRoutes);
-
+app.use("/test" , testRoutes);
 // Use API Endpoints
 
 app.use("/api/class" , classApi);
 app.use("/api/messages" , messagesApi);
 app.use("/api/assignments" , assignmentsApi);
 app.use("/api/assignment" , assignmentApi);
+app.use("/api/tests" , testsApi);
+app.use("/api/test" , testApi);
 
 app.get("/", middleware.requireLogin, (req, res, next) => {
     var payload = {

@@ -7,7 +7,7 @@ const Assignment = require("../../schemas/AssignmentsSchema");
 const Test = require("../../schemas/TestsSchema");
 const Message = require("../../schemas/MessageSchema");
 const Task = require("../../schemas/TaskSchema");
-
+const session = require('express-session')
 
 const { nanoid } = require('nanoid')
 
@@ -33,7 +33,7 @@ router.post("/create", async (req, res, next) => {
     .then( async (createdClass) => {
         createdClass = await Class.findByIdAndUpdate(createdClass._id, { $addToSet: { owners: req.session.user._id } }, { new: true })
         createdClass = await Class.populate(createdClass, {path: "owners"})
-        req.session.user = await User.findByIdAndUpdate(req.session.user._id, {$addToSet: {ownerOf: createdClass._id}})
+        req.session.user = await User.findByIdAndUpdate(req.session.user._id, {$addToSet: {ownerOf: createdClass._id}}, {new: true})
         res.status(201).send(createdClass)
     })
     .catch(error => { console.log(error); res.sendStatus(400); })

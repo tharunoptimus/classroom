@@ -65,7 +65,7 @@ $(document).on("click", "#confirmJoinButton", () => {
             data: { classId: value },
             success: (data, status, xhr) => {
                 if (status === "success") {
-                    let classId = data.classId;
+                    let classId = data._id;
                     location.href = `/class/${classId}`;
                 }
                 else {
