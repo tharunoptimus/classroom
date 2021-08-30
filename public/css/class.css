@@ -663,3 +663,23 @@ html, body {
     font-size: 1.5rem;
     margin: 0.5rem;
 }
+
+.submissionDetails {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid var(--cardBorderColor);
+    margin-top: 1rem;
+    padding-top: 1rem;
+    text-align: center;
+}
+
+.numeral {
+    margin: 0 auto 0.5rem auto;
+    font-size: 2rem;
+}
+
+.subNumeral {
+    margin: 0 auto 0.5rem auto;
+    font-size: 1.5rem;
+}

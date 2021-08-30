@@ -104,6 +104,16 @@ function showAssignmentDetails (assignment) {
                 <p class="assignmentDescription">${assignment.description}</p>
                 <a class="assignmentLink" href="${assignment.link}">Link to the assignment</a>
                 <span>Assigned Marks: ${assignment.assignedMarks}</span>
+                <div class="submissionDetails">
+                    <span>
+                        <p class="numeral"> 1 </p>
+                        <p class="subNumeral"> Submitted </p>
+                    </span>
+                    <span>
+                        <p class="numeral"> 4 </p>
+                        <p class="subNumeral"> Remaining </p>
+                    </span>
+                </div>
             </div>
         </div>
     </div>`
