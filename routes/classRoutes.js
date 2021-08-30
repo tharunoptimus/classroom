@@ -26,6 +26,9 @@ router.get("/:classId", async (req, res, next) => {
     
     await Class.findById(req.params.classId)
     .then(async classData => {
+
+        if(!classData) return res.redirect("/home")
+
         classData = await Class.populate(classData, {path: "owners"})
 
         payload.pageTitle = "Dashboard"
@@ -38,7 +41,7 @@ router.get("/:classId", async (req, res, next) => {
     })
     .catch(err => {
         res.json(err);
-        res.status(500).send("Server Error")
+        res.status(400).render("/home")
     })
     
 })

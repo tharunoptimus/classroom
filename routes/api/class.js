@@ -55,6 +55,32 @@ router.put("/join", async (req, res, next) => {
     .catch(error => { console.log(error); res.sendStatus(400); })
 })
 
+router.put("/:classId/change/", async (req, res, next) => {
+    if(!req.session.user) { console.log("User param not sent with request"); return res.sendStatus(400); }
+
+    let classId = req.params.classId
+    if(!req.session.user.ownerOf.includes(classId)) { console.log("User is not owner of class"); return res.sendStatus(400); }
+    let name = req.body.name
+    if(!isValidString(name)) { console.log("Invalid name"); return res.sendStatus(400); }
+
+    await Class.findByIdAndUpdate(classId, {$set: {className: name}}, { new: true})
+    .then( async (data) => { res.status(201).send(data) })
+    .catch(error => { console.log(error); res.sendStatus(400); })
+})
+
+router.delete("/:classId/delete", async (req, res, next) => {
+
+    if(!req.session.user) { console.log("User param not sent with request"); return res.sendStatus(400); }
+
+    let classId = req.params.classId
+    if(!req.session.user.ownerOf.includes(classId)) { console.log("User is not owner of class"); return res.sendStatus(400); }
+    
+    // find by id and delete
+    await Class.findByIdAndDelete(classId)
+    .then(() => res.status(201).send("Class deleted"))
+    .catch(error => { console.log(error); return res.sendStatus(400); })
+})
+
 router.get("/", async (req, res, next) => {
     if(!req.session.user) { console.log("User param not sent with request"); return res.sendStatus(400); }
     let userId = req.session.user._id
@@ -82,6 +108,10 @@ router.get("/", async (req, res, next) => {
 
 function createJitsiLink(className, classID) {
     return "https://meet.jit.si/" + classID + className;
+}
+
+function isValidString(str) {
+    return /^[a-zA-Z0-9 ]+$/.test(str);
 }
 
 

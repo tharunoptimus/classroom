@@ -1,12 +1,12 @@
-$(document).ready(() => {
-    if(!userLoggedIn.ownerOf.includes(classObject._id)) {
-        $(".cogIcon").remove();
+document.addEventListener("DOMContentLoaded", function(event) { 
+    if (window.location.pathname != '/') {
+        if(userLoggedIn.ownerOf.includes(classObject._id)) {
+            $(".cogIcon").remove();
+        }
     }
 });
 
 
-// Don't touch this. I don't know what it does. 
-// But without this, the createClass Button in the home page goes down on modal close
 $("#createClass").on("hidden.bs.modal", () =>
     $("#createClass").css
 );
@@ -76,6 +76,67 @@ $(document).on("click", "#confirmJoinButton", () => {
     }
 })
 
+$(document).on("click", ".cogIcon", () => {
+    $("#changeClassSettingsModal").modal("show");
+})
+
+$(document).on("click", ".hamBurger", () => {
+    $("#hamburgerMenu").modal("show");
+})
+
+$(document).on("click", ".home", () => {
+    window.location.href = "/";
+})
+
+$(document).on("click", ".logout", () => {
+    window.location.href = "/logout";
+})
+
+$(document).on("click", ".calander", function() {
+    window.location.href = "/calander";
+})
+
+$(document).on("click", "#confirmChangeClassButton", () => {
+    let input = $("#changeClassSettingsModal").find("input");
+    let value = input.val().trim();
+    if (value === "") {   
+        alert("Please enter a class name");
+        $("#changeClassSettingsModal").modal("hide");
+        return;
+    }
+    else {
+        $.ajax({
+            url: `/api/class/${classObject._id}/change`,
+            type: "PUT",
+            data: { name: value },
+            success: (data, status, xhr) => {
+                if(status === "success") {
+                    location.reload();
+                }
+                else {
+                    alert("Failed to change class");
+                    $("#changeClassSettingsModal").modal("hide");
+                }
+            }
+        })
+    }
+})
+
+$(document).on("click", "#deleteClassButton", function() {
+    $.ajax({
+        url: `/api/class/${classObject._id}/delete`,
+        type: "DELETE",
+        success: (data, status, xhr) => {
+            if(status === "success") {
+                location.href = "/";
+            }
+            else {
+                alert("Failed to delete class");
+                $("#changeClassSettingsModal").modal("hide");
+            }
+        }
+    })
+})
 
 function timeDifference(current, previous) {
 	var msPerMinute = 60 * 1000;

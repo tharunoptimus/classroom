@@ -13,6 +13,11 @@ html, body {
     font-weight: 400;
 }
 
+.justifySpaceEvenly {
+    display: flex;
+    justify-content: space-evenly;
+}
+
 .courcesWrapper {
     display: flex;
     flex-direction: column;
@@ -126,8 +131,6 @@ html, body {
     margin: 1rem 0;
     padding: 1rem 2rem;
     display: flex;
-    /* grid-template-columns: repeat(4, 1fr); */
-    /* grid-gap: 1rem; */
     flex-wrap: wrap;
 }
 

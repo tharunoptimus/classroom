@@ -38,6 +38,11 @@ html, body {
     place-items: center;
 }
 
+.justifySpaceEvenly {
+    display: flex;
+    justify-content: space-evenly;
+}
+
 .courcesWrapper {
     display: flex;
     flex-direction: column;
