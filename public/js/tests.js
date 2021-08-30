@@ -67,7 +67,7 @@ function renderTipsForStudent () {
 }
 
 function renderCreateAssignmentButton () {
-    return `<button class="goodAjaxButton" style="outline:none;" id="createAnAssignment" data-toggle="modal" data-target="#createAssignmentModal">Create an Test</button>`
+    return `<button class="goodAjaxButton" style="outline:none;" id="createAnAssignment" data-toggle="modal" data-target="#createAssignmentModal">Create a Test</button>`
 }
 
 function renderAssignment (data, isOwner) {

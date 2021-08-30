@@ -20,12 +20,14 @@ router.post("/create", async (req, res, next) => {
 
     if(!req.session.user) { console.log("User param not sent with request"); return res.sendStatus(400); }
     let className = req.body.className
+    let timings = req.body.timings
     let classId = nanoid(10)
     let lectureLink = createJitsiLink(className, classId)
     let newClass = {
         className: className,
         classId: classId,
-        lectureLink: lectureLink
+        lectureLink: lectureLink,
+        timings: timings
     }
 
 
@@ -107,7 +109,11 @@ router.get("/", async (req, res, next) => {
 })
 
 function createJitsiLink(className, classID) {
-    return "https://meet.jit.si/" + classID + className;
+    return "https://meet.jit.si/" + classID + replaceWhitespace(className);
+}
+
+function replaceWhitespace(string) {
+    return string.replace(/\s/g, "-")
 }
 
 function isValidString(str) {

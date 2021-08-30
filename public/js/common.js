@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(event) { 
     if (window.location.pathname != '/') {
-        if(userLoggedIn.ownerOf.includes(classObject._id)) {
+        if(!userLoggedIn.ownerOf.includes(classObject._id)) {
             $(".cogIcon").remove();
         }
     }
@@ -27,14 +27,22 @@ $(document).on('click', '#tests', function() {
 
 $(document).on("click", "#confirmCreateClass", () => {
     let input = $("#createClassPromptModal").find("input");
+    let timings = $("#inputClassTimings").val().trim();
     let value = input.val().trim();
     if (value === "") { 
         alert("Please enter a class name");
         $("#createClassPromptModal").modal("hide");
         return;
     }
+
+    if (timings === "") {
+        alert("Please enter a class timings");
+        $("#createClassPromptModal").modal("hide");
+        return;
+    }
+
     else {
-        $.post("/api/class/create", { className: value }, (data, status, xhr) => {
+        $.post("/api/class/create", { className: value, timings: timings }, (data, status, xhr) => {
             if (status === "success") {   
                 $("#createClassPromptModal").modal("hide");
                 
@@ -92,8 +100,8 @@ $(document).on("click", ".logout", () => {
     window.location.href = "/logout";
 })
 
-$(document).on("click", ".calander", function() {
-    window.location.href = "/calander";
+$(document).on("click", ".calendar", function() {
+    window.location.href = "/calendar";
 })
 
 $(document).on("click", "#confirmChangeClassButton", () => {
