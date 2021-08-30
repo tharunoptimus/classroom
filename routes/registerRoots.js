@@ -41,6 +41,7 @@ router.post("/", async (req, res, next) => {
         if(user == null) {
             // No user found
             var data = req.body;
+            data.profilePic = `https://avatars.dicebear.com/api/bottts/${firstName}${lastName}/:seed.svg`
             data.password = await bcrypt.hash(password, 10);
             User.create(data)
             .then((user) => {
