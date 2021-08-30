@@ -25,21 +25,27 @@ app.use(session({
 const loginRoutes = require("./routes/loginRoutes")
 const registerRoutes = require("./routes/registerRoots")
 const classRoutes = require("./routes/classRoutes")
+const assignmentRoutes = require("./routes/assignmentRoutes")
 
 
 // API Endpoints
 const classApi = require("./routes/api/class")
 const messagesApi = require("./routes/api/messages")
+const assignmentsApi = require("./routes/api/assignments")
+const assignmentApi = require("./routes/api/assignment")
 
 
 app.use("/login" , loginRoutes);
 app.use("/register" , registerRoutes);
 app.use("/class" , classRoutes);
+app.use("/assignment" , assignmentRoutes);
 
 // Use API Endpoints
 
 app.use("/api/class" , classApi);
 app.use("/api/messages" , messagesApi);
+app.use("/api/assignments" , assignmentsApi);
+app.use("/api/assignment" , assignmentApi);
 
 app.get("/", middleware.requireLogin, (req, res, next) => {
     var payload = {

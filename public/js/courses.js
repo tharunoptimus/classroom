@@ -1,6 +1,5 @@
 $(document).ready(function () {
     $.get("/api/class", function (data) {
-        console.log(data)
         $(".cardsContainer").html(createClassCard(data));
     })
 });

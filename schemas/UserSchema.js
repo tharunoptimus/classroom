@@ -10,7 +10,8 @@ const UserSchema = new Schema({
     belongsTo: [{ type: Schema.Types.ObjectId, ref: 'Class' }],
     ownerOf: [{ type: Schema.Types.ObjectId, ref: 'Class' }],
     assignments: [{ type: Schema.Types.ObjectId, ref: 'Assignment' }],
-    tests: [{ type: Schema.Types.ObjectId, ref: 'Test' }]
+    tests: [{ type: Schema.Types.ObjectId, ref: 'Test' }],
+    tasks: [{ type: Schema.Types.ObjectId, ref: 'Task' }],
 }, { timestamps: true });
 
 var User = mongoose.model('User', UserSchema)

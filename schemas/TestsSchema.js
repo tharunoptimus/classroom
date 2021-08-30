@@ -6,9 +6,7 @@ const TestsSchema = new Schema({
     description: { type: String, trim: true },
     link: { type: String, required: true },
     assignedMarks: { type: Number, required: true },
-    marksScored: { type: Number },
-    completedBy: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-    dueDate: { type: Date, required: true, trim: true },
+    completedBy: [{ type: Schema.Types.ObjectId, ref: 'User' }]
 
 }, { timestamps: true });
 

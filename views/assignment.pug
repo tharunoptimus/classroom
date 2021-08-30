@@ -1,0 +1,25 @@
+extends layouts/main-layout.pug
+
+block content
+    script.
+        let assignmentObject = !{assignmentObjectJs}
+    .streamContainer
+        .bodyContainer
+            .mainBodyContainer
+
+                .assignmentDetails
+
+                span.assignmentHeading Submissions
+                .completedAssignments
+                    
+
+                .gridPlaceCenter
+                    button#returned.goodAjaxButton Load Returned Assignments
+
+                .returnedAssignments
+                    
+                .notSubmitted
+                .tipsBlockContainer
+
+block scripts
+    script(src="/js/assignment.js")

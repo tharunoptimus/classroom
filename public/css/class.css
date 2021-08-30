@@ -4,11 +4,14 @@
     --bgByOwner: #e74c3c1a;
     --tabFontColor: #5F6368;
     --buttonBlack: #00000096;
+    --totalMarksColor: #fbc531;
     --cardBorderColor: #dadce0;
     --backgroundBlue: #09ff0054;
+    --marksAwardedColor: #4cd137;
     --tabFontHoverColor: #e8f0fe;
     --svgHoverBoxShadow: #5f63680a;
     --tabBottomBorderColor: #1967d2;
+    --assignmentTaskStatusColor: #4cd137;
     --tabInactiveFontHoverColor: #2021240a;
     --borderTopLine: 0.0625rem solid #e0e0e0;
 }
@@ -28,6 +31,11 @@ html, body {
 .flexShrink {
     -webkit-flex-shrink: 0;
     flex-shrink: 0;
+}
+
+.gridPlaceCenter {
+    display: grid;
+    place-items: center;
 }
 
 .courcesWrapper {
@@ -79,7 +87,7 @@ html, body {
 .leftContent span {
     font-size: 1rem;
     padding-left: 1rem;
-    max-width: 100px;
+    max-width: 120px;
 }
 
 
@@ -513,6 +521,7 @@ html, body {
 .goodAjaxButton {
     width: fit-content;
     margin: 11px 0;
+    -webkit-appearance: none;
 }
 
 .messages {
@@ -552,4 +561,105 @@ html, body {
 .messageContainer .senderName {
     color: #44444499;
     display: flex;
+}
+
+
+/* Assignments */
+
+.createTaskModalBody {
+    display: flex;
+    flex-direction: column;
+}
+
+.createTaskModalBody > * {
+    outline: none;
+    -webkit-appearance: none;
+    margin: 0.5rem 0.5rem;
+    padding: 0.5rem;
+    border: var(--borderTopLine);
+    border-radius: 0.5rem;
+}
+
+.assignmentContainer {
+    margin-top: 0.4rem;
+    padding: 1rem;
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+    border-radius: 0.5rem;
+}
+
+.selectedAssignment {
+    border: 1px solid rgb(0 168 255 / 40%);
+    background-color: #00a8ff08;
+}
+
+
+.assignmentTitle {
+    display: flex;
+    cursor: pointer;
+}
+
+.assignmentTitlePara {
+    flex: 1;
+    margin: 0.5rem 0;
+    font-size: 1.4rem;
+}
+
+.assignmentTotalMarks {
+    margin: auto 0;
+    color: var(--totalMarksColor);
+}
+
+.assignmentBody {
+    display: none;
+}
+.assignmentBodyHolder {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.assignmentDescription {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+.assignmentLink {
+    margin: 0.5rem 0 0.7rem 0;
+    font-size: 1.2rem;
+}
+
+.assignmentLink :hover {
+    text-decoration: none;
+}
+
+.previousAssignments {
+    margin-top: 1rem;
+}
+
+.assignmentStatus {
+    font-size: 1.1rem;
+    color: var(--assignmentTaskStatusColor);
+}
+
+.inputMarks {
+    margin: 0 1rem 0 0;
+    padding: 0.3rem;
+    border: 1px solid #44444429;
+    outline: none;
+    border-radius: 0.25rem;
+}
+
+.returnedStudentName {
+    margin: 0;
+    flex: 1;
+}
+
+.rewardedMark {
+    margin: auto;
+}
+
+.assignmentHeading {
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 0.5rem;
 }

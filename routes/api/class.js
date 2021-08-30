@@ -6,6 +6,8 @@ const Class = require("../../schemas/ClassSchema");
 const Assignment = require("../../schemas/AssignmentsSchema");
 const Test = require("../../schemas/TestsSchema");
 const Message = require("../../schemas/MessageSchema");
+const Task = require("../../schemas/TaskSchema");
+
 
 const { nanoid } = require('nanoid')
 
