@@ -23,6 +23,7 @@ app.use(session({
 }))
 
 const loginRoutes = require("./routes/loginRoutes")
+const logoutRoutes = require("./routes/logoutRoutes")
 const registerRoutes = require("./routes/registerRoots")
 const classRoutes = require("./routes/classRoutes")
 const assignmentRoutes = require("./routes/assignmentRoutes")
@@ -39,6 +40,7 @@ const testApi = require("./routes/api/test")
 
 
 app.use("/login" , loginRoutes);
+app.use("/logout", logoutRoutes)
 app.use("/register" , registerRoutes);
 app.use("/class" , classRoutes);
 app.use("/assignment" , assignmentRoutes);
