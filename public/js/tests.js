@@ -96,11 +96,9 @@ function renderAssignment (data, isOwner) {
 
 function renderCompletedAssignment (data) {
     let html = ""
-    console.log(data)
     data.reverse().forEach(task => {
 
         let taskStatus = task.marksScored == 0 ? "Not yet graded" : `${task.marksScored}/${task.assignmentId.assignedMarks}`
-        console.log(task)
         html += `<div class="assignmentContainer">
         <div class="assignmentTitle" data-id="${task._id}">
             <p class="assignmentTitlePara">${task.assignmentId.name}</p>
@@ -202,7 +200,6 @@ $(document).on('click', '.seeMoreDetailsButton', function () {
 
 $(document).on('click', '.loadPreviousAssignments', async () => {
     await $.get(`/api/tests/${classObject._id}/submitted`, (data, xhr, status) => {
-        console.log(data)
         let html = renderCompletedAssignment(data)
         $(".previousAssignments").html(html)
     })

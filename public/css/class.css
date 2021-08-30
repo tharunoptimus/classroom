@@ -596,6 +596,7 @@ html, body {
 .assignmentTitle {
     display: flex;
     cursor: pointer;
+    align-items: center;
 }
 
 .assignmentTitlePara {
@@ -682,4 +683,28 @@ html, body {
 .subNumeral {
     margin: 0 auto 0.5rem auto;
     font-size: 1.5rem;
+}
+
+
+/* People */
+
+.peopleCategory {
+    font-size: 1.5rem;
+    margin: 1.5rem 0 1rem 0;
+}
+
+.peopleImageContainer {
+    height: 2rem;
+    width: 2rem;
+    margin-right: 1rem;
+}
+
+.peopleImage {
+    max-height: 100%;
+    border-radius: 50%;
+}
+
+.infoSvgHolder {
+    height: 1.5rem;
+    width: 1.5rem;
 }

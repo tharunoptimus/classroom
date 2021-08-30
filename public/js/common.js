@@ -1,5 +1,4 @@
 $(document).ready(() => {
-    console.log("common.js loaded");
     if(!userLoggedIn.ownerOf.includes(classObject._id)) {
         $(".cogIcon").remove();
     }
