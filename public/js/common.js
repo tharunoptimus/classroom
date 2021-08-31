@@ -146,6 +146,10 @@ $(document).on("click", "#deleteClassButton", function() {
     })
 })
 
+$(".tabsDivAnchor").on("click", function(event) {
+    event.preventDefault();
+})
+
 function timeDifference(current, previous) {
 	var msPerMinute = 60 * 1000;
 	var msPerHour = msPerMinute * 60;

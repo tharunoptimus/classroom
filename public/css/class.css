@@ -4,7 +4,7 @@
     --bgByOwner: #e74c3c1a;
     --tabFontColor: #5F6368;
     --buttonBlack: #00000096;
-    --totalMarksColor: #fbc531;
+    --totalMarksColor: #a32e11;
     --cardBorderColor: #dadce0;
     --backgroundBlue: #09ff0054;
     --marksAwardedColor: #4cd137;
@@ -20,6 +20,10 @@ html, body {
     height: 100%;
     margin: 0;
     font-weight: 400;
+}
+
+a {
+    color: #0056b2;
 }
 
 @media (max-width: 40em) {
@@ -298,7 +302,7 @@ html, body {
     position: absolute;
     top: 0;
     width: 100%;
-    background-image: url("https://gstatic.com/classroom/themes/img_learnlanguage.jpg");
+    background-image: url("/images/gstatic.jpg");
 }
 
 .classInformationDiv {
