@@ -1,0 +1,17 @@
+{
+    "short_name": "Classroom",
+    "name": "Classroom",
+    "description": "Classroom PWA",
+    "icons": [
+      {
+        "src": "logo.png",
+        "type": "image/png",
+        "sizes": "512x512",
+        "purpose": "any maskable"
+      }
+    ],
+    "start_url": "/",
+    "background_color": "#FFFFFF",
+    "display": "standalone",
+    "theme_color": "#00a8ff"
+  }
