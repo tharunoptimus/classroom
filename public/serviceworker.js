@@ -28,6 +28,7 @@ const AUTO_CACHE = [
 	"/css/login.css",
 	"/css/main.css",
 	"/css/pace.css",
+	"/css/scrollbar.css",
 	"/css/sans.ttf",
 
 	"/images/gstatic.jpg",

@@ -5,15 +5,15 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         meta(name="description" content="Say something, find assignments, test, and see everyone on this classroom")
 
-        link(rel='shortcut icon' href='favicon.ico')
-        link(rel="manifest" href="manifest.json")
-        link(rel="apple-touch-icon" href="manifestlogo.png")
+        link(rel='shortcut icon' href='/favicon.ico')
 
         title #{pageTitle}
         script(src="/js/pace.js")
         link(rel="stylesheet" href="/css/pace.css")
         link(rel='stylesheet' href='/css/bootstrap.css')
         link(rel="stylesheet", href="/css/class.css", id="maincss")
+        link(rel="stylesheet", href="/css/scrollbar.css")
+
         
     body
         script.
@@ -93,11 +93,3 @@ html(lang="en")
         block scripts 
         
         script(src='/js/common.js')
-        script.
-            if('serviceWorker' in navigator) {
-                window.addEventListener('load', () => {
-                    navigator.serviceWorker.register('serviceworker.js')
-                        .then((reg) => console.log('Success: ', reg.scope))
-                        .catch((err) => console.log('Failure: ', err));
-                })
-            }
