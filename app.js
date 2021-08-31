@@ -29,6 +29,7 @@ const classRoutes = require("./routes/classRoutes")
 const assignmentRoutes = require("./routes/assignmentRoutes")
 const testRoutes = require("./routes/testRoutes")
 const calendarRoutes = require("./routes/calendarRoutes")
+const aboutRoutes = require("./routes/aboutRoutes")
 
 
 // API Endpoints
@@ -47,6 +48,7 @@ app.use("/class" , classRoutes);
 app.use("/assignment" , assignmentRoutes);
 app.use("/test" , testRoutes);
 app.use("/calendar" , calendarRoutes);
+app.use("/about" , aboutRoutes);    
 
 // Use API Endpoints
 
