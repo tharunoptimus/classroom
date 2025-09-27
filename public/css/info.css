@@ -15,6 +15,7 @@ html {
 	.bodyWrapper {
 		width: 80%;
 		margin: 0 auto;
+		max-width: 900px;
 	}
 	.github img {
 		width: 10%;
