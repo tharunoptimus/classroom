@@ -1,7 +1,7 @@
 # The Classroom
 
 ## Config
-- Replace the string with your connect string in the `mongoose.connect` method in the `database.js` file.
+- Add environment variable `MONGODB_URI` with your MongoDB connection string.
 
 ## Install
 `npm install` to install the dependencies.
